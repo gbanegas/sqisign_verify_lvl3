@@ -3,7 +3,8 @@
 #include "sqisign.h"
 
 #define MSG_SIZE 10
-#define SMLEN 224
+#define PUBLICKEY_BYTES 97
+#define SMLEN 224 + MSG_SIZE
 
 int main(void) {
     printf("Hello, World!\n");
