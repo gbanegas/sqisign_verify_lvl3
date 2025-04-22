@@ -816,6 +816,7 @@ static int modqr(const spint *h, const spint *x) {
   return modis1(r) | modis0(x);
 }
 
+/*
 // conditional move g to f if d=1
 // strongly recommend inlining be disabled using compiler specific syntax
 static void modcmv(int b, const spint *g, volatile spint *f) {
@@ -830,7 +831,7 @@ static void modcmv(int b, const spint *g, volatile spint *f) {
     f[i] = c0 * t + c1 * s;
     f[i] -= r * (t + s);
   }
-}
+}*/
 
 // conditional swap g and f if d=1
 // strongly recommend inlining be disabled using compiler specific syntax
@@ -885,6 +886,7 @@ static int modshr(unsigned int n, spint *a) {
   return r;
 }
 
+/*
 // set a= 2^r
 static void mod2r(unsigned int r, spint *a) {
   unsigned int n = r / 28u;
@@ -896,8 +898,9 @@ static void mod2r(unsigned int r, spint *a) {
   a[n] <<= m;
   nres(a, a);
 }
+*/
 
-// export to byte array
+/*// export to byte array
 static void modexp(const spint *a, char *b) {
   int i;
   spint c[14];
@@ -906,9 +909,9 @@ static void modexp(const spint *a, char *b) {
     b[i] = c[0] & (spint)0xff;
     (void)modshr(8, c);
   }
-}
+}*/
 
-// import from byte array
+/*// import from byte array
 // returns 1 if in range, else 0
 static int modimp(const char *b, spint *a) {
   int i, res;
@@ -922,14 +925,16 @@ static int modimp(const char *b, spint *a) {
   res = modfsb(a);
   nres(a, a);
   return res;
-}
+}*/
 
+/*
 // determine sign
 static int modsign(const spint *a) {
   spint c[14];
   redc(a, c);
   return c[0] % 2;
 }
+*/
 
 // return true if equal
 static int modcmp(const spint *a, const spint *b) {
